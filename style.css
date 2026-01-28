@@ -1,0 +1,1790 @@
+/* ========================================
+   EDUKA-INSPIRED DESIGN SYSTEM
+   ======================================== */
+
+:root {
+    /* Colors - Eduka Palette (Exact Values) */
+    --color-primary: #fda31b;
+    /* Orange Eduka */
+    /* Orange */
+    --color-primary-dark: #e89210;
+    --color-secondary: #116e63;
+    /* Teal/Vert Sapin Eduka */
+    /* Teal */
+    --color-secondary-dark: #0d5449;
+
+    --color-dark: #1A1A2E;
+    --color-dark-light: #2D2D44;
+    --color-white: #FFFFFF;
+    --color-bg: #F8F9FA;
+    --color-bg-light: #FFFFFF;
+
+    --text-dark: #1A1A2E;
+    --text-body: #5A5A6E;
+    --text-light: #8A8A9E;
+
+    /* Typography - Exact Eduka Fonts */
+    --font-heading: 'Yantramanav', sans-serif;
+    /* Eduka headings font */
+    --font-body: 'Roboto', sans-serif;
+    /* Eduka body font */
+
+    /* Spacing */
+    --container-width: 1200px;
+    --section-padding: 5rem 0;
+
+    /* Shadows - Eduka Exact */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md: rgba(0, 0, 0, 0.05) 0px 0px 40px 5px;
+    /* Eduka soft shadow */
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+    --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.15);
+    --shadow-rigid: rgb(242, 243, 245) 5px 5px 0px 0px;
+    /* Eduka rigid offset */
+
+    /* Border Radius - Eduka Signature */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --radius-full: 50%;
+    --radius-eduka: 50px 50px 50px 0px;
+    /* ⭐ Eduka asymmetric signature */
+    --radius-eduka-img: 80px 80px 0px 80px;
+    /* For about images */
+
+    /* Transitions */
+    --transition: all 0.3s ease;
+    --transition-slow: all 0.5s ease;
+}
+
+/* ========================================
+   RESET & BASE
+   ======================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-body);
+    background-color: var(--color-bg);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    height: auto;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: inherit;
+}
+
+/* ========================================
+   UTILITIES
+   ======================================== */
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem;
+    font-weight: 600;
+    /* Exact Eduka */
+    font-family: var(--font-body);
+    /* Roboto */
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+    font-size: 14px;
+    /* Exact Eduka */
+    letter-spacing: 1px;
+    /* Exact Eduka */
+    text-transform: uppercase;
+}
+
+.btn--primary {
+    background: var(--color-primary);
+    color: white;
+    border-radius: var(--radius-eduka);
+    /* ⭐ Eduka signature */
+    box-shadow: var(--shadow-md);
+    /* Eduka soft shadow */
+    padding: 14px 20px;
+    /* Exact Eduka padding */
+}
+
+.btn--primary:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 152, 0, 0.4);
+}
+
+.btn--white {
+    background: white;
+    color: var(--color-dark);
+    border: 2px solid white;
+    border-radius: var(--radius-eduka);
+    /* ⭐ Eduka signature */
+}
+
+.btn--white:hover {
+    background: transparent;
+    color: white;
+    border-color: white;
+}
+
+.btn--lg {
+    padding: 1.125rem 2.5rem;
+    font-size: 1rem;
+}
+
+.section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.text-highlight {
+    color: var(--color-primary);
+}
+
+.section-text {
+    color: var(--text-body);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+/* ========================================
+   TOP BAR
+   ======================================== */
+
+.top-bar {
+    background: var(--color-primary);
+    /* Orange #fda31b */
+    color: white;
+    padding: 9px 0 10px 0;
+    /* Exact Eduka padding */
+    font-size: 16px;
+    /* Exact Eduka size */
+    height: 54px;
+    /* Exact Eduka height */
+}
+
+.top-bar__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-bar__left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.top-bar__text {
+    font-weight: 500;
+    /* Exact Eduka */
+    font-size: 16px;
+    /* Exact Eduka */
+}
+
+.social-links {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.social-link {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+}
+
+.social-link:hover {
+    background: white;
+    color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+.top-bar__right {
+    display: flex;
+    gap: 2rem;
+    background: var(--color-secondary);
+    /* Vert/Teal #116e63 */
+    padding: 0 2rem;
+    margin: -9px -2rem -10px 0;
+    height: 54px;
+    align-items: center;
+}
+
+.top-bar__item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.top-bar__item i {
+    font-size: 0.75rem;
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+
+.header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: white;
+    box-shadow: var(--shadow-sm);
+    padding: 1rem 0;
+    height: 90px;
+    /* Exact Eduka height */
+    display: flex;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.header.scrolled {
+    box-shadow: var(--shadow-md);
+    padding: 0.75rem 0;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--container-width);
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--color-dark);
+}
+
+.logo i {
+    color: var(--color-primary);
+    font-size: 1.75rem;
+}
+
+.logo__image {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+}
+
+#nav-menu {
+    margin-left: auto !important;
+}
+
+.nav__list {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav__link {
+    color: var(--text-dark);
+    font-weight: 600;
+    /* Exact Eduka */
+    font-size: 17px;
+    /* Exact Eduka */
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.nav__link i {
+    font-size: 0.7rem;
+    transition: var(--transition);
+}
+
+.nav__link:hover,
+.nav__link.active {
+    color: var(--color-primary);
+}
+
+.nav__link:hover i {
+    transform: rotate(180deg);
+}
+
+.header__actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.search-btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    color: var(--text-dark);
+    transition: var(--transition);
+}
+
+.search-btn:hover {
+    background: var(--color-bg);
+    color: var(--color-primary);
+}
+
+.mobile-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0.5rem;
+}
+
+.mobile-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background: var(--color-dark);
+    border-radius: 2px;
+    transition: var(--transition);
+}
+
+/* ========================================
+   HERO SLIDER
+   ======================================== */
+
+.hero-slider {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    overflow: hidden;
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.slide__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.slide__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(11, 28, 57, 0.7);
+    /* Exact Eduka overlay - 70% opacity */
+}
+
+.slide__content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 15vh;
+    max-width: 700px;
+    color: white;
+}
+
+.hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 8px 20px;
+    /* Exact Eduka padding */
+    background: rgba(253, 163, 27, 0.15);
+    border: 2px solid var(--color-primary);
+    border-radius: 50px;
+    color: var(--color-primary);
+    font-weight: 800;
+    /* Exact Eduka weight */
+    font-size: 25px;
+    /* Exact Eduka size */
+    font-family: var(--font-heading);
+    /* Yantramanav */
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    /* Exact Eduka - IMPORTANT */
+    margin-bottom: 1.5rem;
+    width: fit-content;
+    animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+.hero__title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 6vw, 72px);
+    /* Exact Eduka: 72px */
+    font-weight: 800;
+    /* Exact Eduka weight */
+    line-height: 72px;
+    /* Exact Eduka line-height */
+    margin: 20px 0;
+    /* Exact Eduka margin */
+    letter-spacing: -0.02em;
+    animation: fadeInUp 0.8s ease 0.4s both;
+}
+
+.hero__subtitle {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    animation: fadeInUp 0.8s ease 0.6s both;
+}
+
+.hero__buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.8s ease 0.8s both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Slider Controls */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-full);
+    color: white;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    z-index: 10;
+}
+
+.slider-btn:hover {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.slider-btn--prev {
+    left: 2rem;
+}
+
+.slider-btn--next {
+    right: 2rem;
+}
+
+.slider-indicators {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1rem;
+    z-index: 10;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.indicator.active {
+    background: var(--color-primary);
+    width: 40px;
+}
+
+.indicator:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* ========================================
+   FEATURES SECTION
+   ======================================== */
+
+.features {
+    padding: var(--section-padding);
+    background: white;
+    margin-top: -80px;
+    position: relative;
+    z-index: 5;
+}
+
+.features__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    background: white;
+    padding: 20px 25px;
+    /* Exact Eduka padding */
+    border-radius: var(--radius-eduka);
+    /* ⭐ Eduka signature: 50px 50px 50px 0px */
+    box-shadow: var(--shadow-md);
+    /* Eduka soft shadow */
+    text-align: center;
+    position: relative;
+    transition: var(--transition);
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+}
+
+.feature-card__icon {
+    width: 80px;
+    /* Exact Eduka size */
+    height: 80px;
+    background: var(--color-secondary);
+    /* Solid teal #116e63 */
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: white;
+    font-size: 2rem;
+    box-shadow: var(--shadow-rigid);
+    /* ⭐ Eduka rigid offset shadow */
+    transition: var(--transition);
+}
+
+.feature-card:hover .feature-card__icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.feature-card__number {
+    position: absolute;
+    top: 20px;
+    /* Exact Eduka position */
+    right: 20px;
+    font-family: var(--font-heading);
+    font-size: 48px;
+    /* Larger for Eduka style */
+    font-weight: 700;
+    color: rgba(17, 110, 99, 0.1);
+    /* Teal with low opacity */
+    line-height: 1;
+}
+
+.feature-card__title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.feature-card__text {
+    color: var(--text-body);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* ========================================
+   ABOUT SECTION
+   ======================================== */
+
+.about {
+    padding: 120px 0;
+    /* Exact Eduka padding */
+    background: var(--color-bg);
+}
+
+.about__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+}
+
+.about__images {
+    position: relative;
+    height: 600px;
+}
+
+.about__image-main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 70%;
+    border-radius: var(--radius-eduka-img);
+    /* ⭐ Eduka: 80px 80px 0px 80px */
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.about__image-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about__image-circle {
+    position: absolute;
+    top: 20%;
+    right: 0;
+    width: 50%;
+    height: 50%;
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    border: 8px solid white;
+    box-shadow: var(--shadow-lg);
+}
+
+.about__image-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.circle-decoration {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: calc(100% + 30px);
+    height: calc(100% + 30px);
+    border: 3px dotted var(--color-primary);
+    border-radius: var(--radius-full);
+    z-index: -1;
+}
+
+.about__image-small {
+    position: absolute;
+    bottom: 0;
+    left: 15%;
+    width: 45%;
+    height: 40%;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    border: 8px solid white;
+    box-shadow: var(--shadow-lg);
+}
+
+.about__image-small img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about__badge {
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+}
+
+.badge-circle {
+    width: 140px;
+    height: 125px;
+    /* Exact Eduka height */
+    background: var(--color-primary);
+    border-radius: var(--radius-eduka);
+    /* ⭐ Eduka signature */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: var(--shadow-md);
+    /* Eduka soft shadow */
+    animation: pulse 2s infinite;
+}
+
+.badge-number {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.badge-text {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.3;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.about__content {
+    padding-left: 2rem;
+}
+
+.about__services {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.service-item {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.service-item__icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.service-item__content h4 {
+    font-family: var(--font-heading);
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.service-item__content p {
+    color: var(--text-body);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.about__stats {
+    margin-top: 2rem;
+}
+
+.stat-box {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 2.5rem;
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.stat-number {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    line-height: 1;
+}
+
+.stat-number::after {
+    content: '%';
+    font-size: 2rem;
+}
+
+.stat-label {
+    color: var(--text-body);
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+/* ========================================
+   COURSES SECTION
+   ======================================== */
+
+.courses {
+    padding: var(--section-padding);
+    background: white;
+}
+
+.courses__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.course-card {
+    background: white;
+    border-radius: var(--radius-eduka);
+    /* ⭐ Eduka signature */
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+}
+
+.course-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+}
+
+.course-card__image {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.course-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-slow);
+}
+
+.course-card:hover .course-card__image img {
+    transform: scale(1.1);
+}
+
+.course-card__category {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    padding: 0.5rem 1rem;
+    background: var(--color-primary);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: var(--radius-sm);
+}
+
+.course-card__content {
+    padding: 2rem;
+}
+
+.course-card__title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.course-card__description {
+    color: var(--text-body);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.course-card__meta {
+    display: flex;
+    gap: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    margin-bottom: 1.5rem;
+}
+
+.course-card__meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-body);
+    font-size: 0.875rem;
+}
+
+.course-card__meta i {
+    color: var(--color-primary);
+}
+
+.course-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.course-card__link:hover {
+    gap: 1rem;
+}
+
+/* ========================================
+   ADMISSION SECTION
+   ======================================== */
+
+.admission {
+    padding: var(--section-padding);
+    background: var(--color-bg);
+}
+
+.admission__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+/* Pricing Table */
+.pricing-section {
+    background: white;
+    padding: 2.5rem;
+    border-radius: var(--radius-eduka);
+    box-shadow: var(--shadow-md);
+}
+
+.pricing-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.pricing-table {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid #e5e5e5;
+}
+
+.pricing-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.pricing-row:last-child {
+    border-bottom: none;
+}
+
+.pricing-header {
+    background: var(--color-secondary);
+    color: white;
+    font-weight: 700;
+}
+
+.pricing-cell {
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+.pricing-row:not(.pricing-header):hover {
+    background: var(--color-bg);
+}
+
+.pricing-note {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: rgba(253, 163, 27, 0.1);
+    border-left: 4px solid var(--color-primary);
+    border-radius: var(--radius-sm);
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+}
+
+.pricing-note i {
+    color: var(--color-primary);
+    font-size: 1.25rem;
+    margin-top: 0.25rem;
+}
+
+.pricing-note p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* Enrollment Form */
+.enrollment-form {
+    background: white;
+    padding: 2.5rem;
+    border-radius: var(--radius-eduka);
+    box-shadow: var(--shadow-md);
+}
+
+.enrollment-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Admission Process */
+.admission-process {
+    margin-top: 4rem;
+}
+
+.process-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.process-step {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--radius-eduka);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.process-step:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    background: var(--color-primary);
+    color: white;
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 700;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    box-shadow: var(--shadow-rigid);
+}
+
+.process-step h4 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.75rem;
+}
+
+.process-step p {
+    color: var(--text-body);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* ========================================
+   STUDENT PORTAL SECTION
+   ======================================== */
+
+.student-portal {
+    padding: var(--section-padding);
+    background: white;
+}
+
+.portal__grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+/* Portal Access Card */
+.portal-access {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: 3rem 2.5rem;
+    border-radius: var(--radius-eduka);
+    box-shadow: var(--shadow-lg);
+    text-align: center;
+    color: white;
+    position: sticky;
+    top: 100px;
+}
+
+.portal-icon {
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 3rem;
+}
+
+.portal-access h3 {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.portal-access p {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+}
+
+.portal-access .btn {
+    width: 100%;
+    justify-content: center;
+    background: white;
+    color: var(--color-primary);
+}
+
+.portal-access .btn:hover {
+    background: var(--color-bg);
+    transform: translateY(-2px);
+}
+
+.portal-help {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.portal-help p {
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.portal-help a {
+    color: white;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+/* Portal Features */
+.portal-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.portal-feature {
+    background: var(--color-bg);
+    padding: 1.5rem;
+    border-radius: var(--radius-eduka);
+    display: flex;
+    gap: 1rem;
+    transition: var(--transition);
+}
+
+.portal-feature:hover {
+    background: white;
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+}
+
+.portal-feature__icon {
+    width: 50px;
+    height: 50px;
+    background: var(--color-secondary);
+    color: white;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-rigid);
+}
+
+.portal-feature__content h4 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.portal-feature__content p {
+    font-size: 0.9rem;
+    color: var(--text-body);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ========================================
+   CTA SECTION
+   ======================================== */
+
+.cta {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: white;
+}
+
+.cta__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+}
+
+.cta__title {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.cta__text {
+    font-size: 1.125rem;
+    opacity: 0.95;
+}
+
+/* ========================================
+   CONTACT SECTION
+   ======================================== */
+
+.contact {
+    padding: var(--section-padding);
+    background: var(--color-bg);
+}
+
+.contact__grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 3rem;
+}
+
+.contact__info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contact-info-card {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--radius-eduka);
+    /* ⭐ Eduka signature */
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+}
+
+.contact-info-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-5px);
+}
+
+.contact-info-card__icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.contact-info-card h4 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.75rem;
+}
+
+.contact-info-card p {
+    color: var(--text-body);
+    line-height: 1.8;
+}
+
+.contact__form {
+    background: white;
+    padding: 3rem;
+    border-radius: var(--radius-eduka);
+    /* ⭐ Eduka signature */
+    box-shadow: var(--shadow-md);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border: 2px solid rgba(0, 0, 0, 0.08);
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    transition: var(--transition);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.form-input::placeholder {
+    color: var(--text-light);
+}
+
+textarea.form-input {
+    resize: vertical;
+    min-height: 150px;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+.footer {
+    background: var(--color-dark);
+    color: rgba(255, 255, 255, 0.8);
+    padding: 4rem 0 2rem;
+}
+
+.footer__grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1.5rem;
+}
+
+.footer__logo i {
+    color: var(--color-primary);
+    font-size: 1.75rem;
+}
+
+.footer__desc {
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.footer__social {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer__social-link {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: var(--transition);
+}
+
+.footer__social-link:hover {
+    background: var(--color-primary);
+    transform: translateY(-3px);
+}
+
+.footer__col h4 {
+    font-family: var(--font-heading);
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 1.5rem;
+}
+
+.footer__links li {
+    margin-bottom: 0.75rem;
+}
+
+.footer__links a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: var(--transition);
+}
+
+.footer__links a:hover {
+    color: var(--color-primary);
+    padding-left: 5px;
+}
+
+.footer__contact li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer__contact i {
+    color: var(--color-primary);
+    margin-top: 0.25rem;
+}
+
+.footer__bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* ========================================
+   SCROLL TO TOP BUTTON
+   ======================================== */
+
+.scroll-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    z-index: 999;
+}
+
+.scroll-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-top:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-5px);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 1024px) {
+    .about__container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .about__images {
+        height: 500px;
+    }
+
+    .about__content {
+        padding-left: 0;
+    }
+
+    .contact__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .top-bar__right {
+        display: none;
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 80%;
+        height: 100vh;
+        background: white;
+        padding: 5rem 2rem 2rem;
+        box-shadow: var(--shadow-lg);
+        transition: var(--transition);
+        z-index: 999;
+    }
+
+    .nav.active {
+        left: 0;
+    }
+
+    .nav__list {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .nav__link {
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .mobile-toggle {
+        display: flex;
+        z-index: 1000;
+    }
+
+    .mobile-toggle.active .bar:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .mobile-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-toggle.active .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    .header__actions .btn {
+        display: none;
+    }
+
+    .slider-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .slider-btn--prev {
+        left: 1rem;
+    }
+
+    .slider-btn--next {
+        right: 1rem;
+    }
+
+    .features {
+        margin-top: 0;
+    }
+
+    .features__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about__images {
+        height: 400px;
+    }
+
+    .courses__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta__container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact__form {
+        padding: 2rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .footer__grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero__buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero__buttons .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* ========================================
+   WHATSAPP FLOATING BUTTON
+   ======================================== */
+
+    .whatsapp-float {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 60px;
+        height: 60px;
+        background: #25D366;
+        /* WhatsApp green */
+        border-radius: var(--radius-eduka);
+        /* Eduka signature */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 30px;
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+        z-index: 1000;
+        transition: var(--transition);
+        animation: pulse-whatsapp 2s infinite;
+    }
+
+    .whatsapp-float:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+    }
+
+    @keyframes pulse-whatsapp {
+
+        0%,
+        100% {
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        50% {
+            box-shadow: 0 4px 30px rgba(37, 211, 102, 0.7);
+        }
+    }
+
+    .about__badge {
+        bottom: 5%;
+        right: 5%;
+    }
+
+    .badge-circle {
+        width: 100px;
+        height: 100px;
+    }
+
+    .badge-number {
+        font-size: 2rem;
+    }
+
+    .badge-text {
+        font-size: 0.65rem;
+    }
+}
